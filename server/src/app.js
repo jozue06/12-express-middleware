@@ -26,7 +26,7 @@ let app = express();
  * @type {{origin: string}}
  */
 let corsOptions = {
-  origin: 'http://example.com'
+  origin: 'http://example.com',
 };
 app.use(cors(corsOptions));
 

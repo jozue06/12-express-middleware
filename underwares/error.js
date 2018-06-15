@@ -16,7 +16,7 @@
  * @param next
  */
 export default (err,req,res,next) => {
-  console.log('In the error handler');
+  console.log('In the error.js handler of errors, I hope you have gloves on');
   res.status(500);
-  res.send('WTF?');
+  res.send('WTF? a 500 error? blet!');
 };
