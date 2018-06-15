@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest --verbose --coverage",
-    "lint": "eslint **/*.js"
+    "lint": "eslint **/*.js",
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build",
+    "flow": "flow"
   },
   "directories": {
     "lib": "lib",
@@ -27,6 +30,12 @@
     "fs": "0.0.1-security",
     "jest": "^23.1.0",
     "morgan": "^1.9.0",
+    "require-dir": "^1.0.0",
     "superagent": "^3.8.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.74.0"
   }
 }

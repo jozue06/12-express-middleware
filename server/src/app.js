@@ -1,3 +1,5 @@
+// @flow
+
 'use strict';
 
 // Debug Utility (needs to be required in the old node way)
@@ -58,6 +60,7 @@ module.exports = {
       app.listen(port, (err) => {
         if(err) { throw err; }
         isRunning = true;
+        console.log('server is up on port: ', port);
         debug('Server is up on port', port);
       });
     }

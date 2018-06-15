@@ -1,3 +1,4 @@
+// @flow
 'use strict';
 
 // Pull in all of our possible storage modules

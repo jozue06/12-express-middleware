@@ -1,3 +1,5 @@
+// @flow
+
 'use strict';
 
 // Models should offload their data storage to another module/system.

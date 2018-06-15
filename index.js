@@ -1,6 +1,11 @@
+// @flow
 'use strict';
 
-//starts the engine vroom vroom
+
+// more start vroom vroom !
+
+require('dotenv').config();
 
 require('babel-register');
-require('./underwares/server');
+
+require('./server/src/app.js').start(process.env.PORT);

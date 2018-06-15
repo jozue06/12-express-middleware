@@ -18,7 +18,7 @@ app.use(logger);
 // Here, we create another simple middleware but only set it to run
 // on the /a route
 let aweMW = (req,res,next) => {
-  console.log('middle where funtion hit');
+  console.log('middle where function hit');
   next();
 };
 app.use('/q', aweMW);
