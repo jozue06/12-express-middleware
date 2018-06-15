@@ -4,6 +4,7 @@
 
 // Models should offload their data storage to another module/system.
 // Here, we'll be using a custom data store module of our own creation
+
 import storage from '../lib/storage/data-switch';
 import uuid from 'uuid/v1';
 
@@ -13,6 +14,7 @@ class Drums{
    * Simple constructor function for our drum model
    * @param config
    */
+
   constructor(config) {
     this.id = uuid();
     this.createdOn = new Date();
@@ -28,6 +30,7 @@ class Drums{
    * Note that it calls on our external storage mechanism to do this operation
    * @returns {*}
    */
+
   save() {
     return storage.save(this);
   }

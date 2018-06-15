@@ -41,6 +41,14 @@ router.post('/api/v1/:model', (req,res,next) => {
     .catch(next);
 });
 
+router.put('/api/v1/:model/:id', (req,res,next) => {
+  debug('put one');
+  req.model.updateOne(req.params.id)
+    .then(data => sendJSON(res,data))
+    .catch(next);
+});
+
+
 /**
  * Simple method to send a JSON response (all of the API methods will use this)
  * This could be done as middleware if you were to configure each route with it
