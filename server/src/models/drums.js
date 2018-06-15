@@ -7,21 +7,24 @@
 import storage from '../lib/storage/data-switch';
 import uuid from 'uuid/v1';
 
-class Note{
+class Drums{
 
   /**
-   * Simple constructor function for our note model
+   * Simple constructor function for our drum model
    * @param config
    */
   constructor(config) {
     this.id = uuid();
     this.createdOn = new Date();
-    this.title = config && config.title || '';
-    this.content = config && config.content || '';
+    this.brand = config && config.brand || '';
+    this.wood = config && config.wood || '';
+    this.color = config && config.color || '';
+    this.count = config && config.count || '';
+    this.descript = config && config.descript || '';
   }
 
   /**
-   * Save an instance of a note
+   * Save an instance of a drum
    * Note that it calls on our external storage mechanism to do this operation
    * @returns {*}
    */
@@ -34,12 +37,12 @@ class Note{
    * Simply put, that means that you can't use them on instances of this model, but
    * rather use them as top level functions.
    * i.e.
-   *    This will use the instance method "save" to save the note we just created
-   *    let myNote = new Note({title:'Hi',content:'There'});
-   *    myNote.save();
+   *    This will use the instance method "save" to save the drum we just created
+   *    let myCymbal = new Cymbals({title:'Hi',address:'There'});
+   *    myCymbal.save();
    *
-   *    To view a single note you would call the method on the constructor istelf:
-   *    Note.fetchOne(id)
+   *    To view a single drum you would call the method on the constructor istelf:
+   *    Cymbal.fetchOne(id)
    *
    * Note that all of the below methods contain calls on our external storage mechanism
    * to perform their operations
@@ -64,4 +67,4 @@ class Note{
 
 }
 
-export default Note;
+export default Drums;

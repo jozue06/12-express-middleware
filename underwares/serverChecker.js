@@ -5,6 +5,8 @@ import notFound from './404.js';
 import errorHandler from './error.js';
 import logger from './logs';
 
+let serverTest = {}
+
 let app = express();
 
 // Here is some global express middleware for parsing data
@@ -59,4 +61,6 @@ app.use('*', notFound);
 // Error Route
 app.use(errorHandler);
 
-app.listen(3333);
+app.listen(3300);
+
+export default serverTest;

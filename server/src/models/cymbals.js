@@ -7,24 +7,28 @@
 import storage from '../lib/storage/data-switch';
 import uuid from 'uuid/v1';
 
-class People{
+class Cymbals{
 
   /**
-   * Simple constructor function for our people model
+   * Simple constructor function for our note model
    * @param config
    */
+
   constructor(config) {
     this.id = uuid();
     this.createdOn = new Date();
-    this.name = config && config.title || '';
-    this.address = config && config.address || '';
+    this.make = config && config.make || '';
+    this.model = config && config.model || '';
+    this.size = config && config.size || '';
+    this.descript = config && config.descript || '';
   }
 
   /**
-   * Save an instance of a people
+   * Save an instance of a cymbal
    * Note that it calls on our external storage mechanism to do this operation
    * @returns {*}
    */
+
   save() {
     return storage.save(this);
   }
@@ -34,18 +38,19 @@ class People{
    * Simply put, that means that you can't use them on instances of this model, but
    * rather use them as top level functions.
    * i.e.
-   *    This will use the instance method "save" to save the people we just created
-   *    let myNote = new Note({title:'Hi',address:'There'});
-   *    myNote.save();
+   *    This will use the instance method "save" to save the cymbal we just created
+   *    let myCymbal = new Cymbals({title:'Hi',content:'There'});
+   *    myCymbal.save();
    *
-   *    To view a single people you would call the method on the constructor istelf:
-   *    Note.fetchOne(id)
+   *    To view a single cymbal you would call the method on the constructor istelf:
+   *    Cymbals.fetchOne(id)
    *
    * Note that all of the below methods contain calls on our external storage mechanism
    * to perform their operations
    *
    * @returns {*}
    */
+  
   static fetchAll() {
     return storage.getAll();
   }
@@ -64,4 +69,4 @@ class People{
 
 }
 
-export default People;
+export default Cymbals;

@@ -4,8 +4,8 @@
 
 /**
  * Dynamically find and set the right model, based on the URL Param
- *    i.e.  /api/vi/people/12345 would result in the model being "people"
- *          assuming there is a valid "people.js" file in the models folder
+ *    i.e.  /api/vi/drums/12345 would result in the model being "drums"
+ *          assuming there is a valid "drums.js" file in the models folder
  * @param req
  * @param res
  * @returns {*}
@@ -17,8 +17,8 @@ import requireAll from 'require-dir';
 const models = requireAll('../models');
 /*
   models: {
-    'notes': {default: Function()...},
-    'people': {default: Function() ...}
+    'cymbals': {default: Function()...},
+    'drums': {default: Function() ...}
   }
  */
 export default (req,res,next) => {

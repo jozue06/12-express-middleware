@@ -28,6 +28,7 @@ router.get('/api/v1/:model', (req,res,next) => {
 });
 
 router.get('/api/v1/:model/:id', (req,res,next) => {
+  debug('get one');
   req.model.findOne(req.params.id)
     .then(data => sendJSON(res,data))
     .catch(next);

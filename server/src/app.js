@@ -41,7 +41,9 @@ app.use(express.urlencoded({extended:true}));
 
 // Our API
 import router from './api/api.js';
+// import serverTest from '../../underwares/serverChecker.js';
 app.use(router);
+// app.use(serverTest)
 
 // Our 404 Handling Middleware
 app.use(notFound);

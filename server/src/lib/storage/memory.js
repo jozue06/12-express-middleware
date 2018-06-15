@@ -22,7 +22,7 @@ storage.get = (id) => {
   });
 };
 
-// For saving, we just add the data into the "database", keyed by the note's id.
+// For saving, we just add the data into the "database", keyed by the cymbal's id.
 storage.save = (data) => {
   return new Promise( (resolve,reject) => {
     if ( data.id ) {
