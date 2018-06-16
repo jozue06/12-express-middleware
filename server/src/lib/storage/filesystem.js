@@ -7,7 +7,7 @@ const debug = require('debug')('storage');
 const storage = {};
 
 // The location where we will store our individual model data files
-const dataDirectory = `${__dirname}/../../../data`;
+const dataDirectory = `${__dirname}/../../../../src/data`;
 
 // Promisify the fs.readFile() method.
 let readFilePromise = function(filename) {
