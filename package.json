@@ -7,8 +7,6 @@
     "start": "node index.js",
     "test": "jest --verbose --coverage",
     "lint": "eslint **/*.js",
-    "build": "babel src/ -d lib/",
-    "prepublish": "npm run build",
     "flow": "flow"
   },
   "directories": {
