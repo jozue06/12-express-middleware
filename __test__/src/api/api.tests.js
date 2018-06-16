@@ -2,7 +2,7 @@
 
 jest.mock('require-dir'); 
 
-import modelFinder from '../../../server/src/middleware/models';
+import modelFinder from '../../../server/src/api/api';
 
 describe('Model Finder Middleware', () => {
   it('throws an error if a valid model is not present', () => {

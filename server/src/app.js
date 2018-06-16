@@ -14,7 +14,7 @@ import router from './api/api.js';
 let app = express();
 
 let corsOptions = {
-  origin: 'http://localhost',
+  origin: ['http://localhost', 'http://app.heroku.com/'],
 };
 app.use(cors(corsOptions));
 app.use(morgan('dev'));
