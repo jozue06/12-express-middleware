@@ -9,4 +9,3 @@ require('dotenv').config();
 require('babel-register');
 
 require('./server/src/app.js').start(process.env.PORT);
-require('./underwares/serverChecker.js')
