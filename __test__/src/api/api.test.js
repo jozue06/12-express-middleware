@@ -3,10 +3,20 @@
 
 import superagent from 'superagent';
 import api from '../../../server/src/api/api.js';
+import app from '../../../server/src/app.js';
 
 
 
 describe('app', () => {
+
+
+  beforeAll( () => {
+    app.start(3333);
+  });
+
+  afterAll( ()=>{
+    app.stop();
+  });
 
   it('should post a new note with the body, and get back that note with a specific id', () => {
     let obj = { 
