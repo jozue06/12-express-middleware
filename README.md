@@ -17,6 +17,6 @@
 - [x] Create a `model` module to handle dynamic models and use it in your server file. 
 - [x] Create methods for filesystem and memory modules to handle `GET, POST, and PUT` operations.
 - [ ] Create a series of acceptance tests to test your `GET, POST, and PUT routes`.
-    - [ ] * **hint:** _you'll want to use the `before` and `after` hooks provided by `jest` in order to create a `test item` and delete the `test item` after the test has completed_ 
+    - [x] * **hint:** _you'll want to use the `before` and `after` hooks provided by `jest` in order to create a `test item` and delete the `test item` after the test has completed_ 
 - [ ] Create a `cors-middleware` module that will allow for public use of your API.
 

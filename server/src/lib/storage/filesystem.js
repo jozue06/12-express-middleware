@@ -74,5 +74,33 @@ storage.save = (data) => {
   });
 };
 
+// storage.get = (id) => {
+//   debug(`getting ${id}`);
+//   return new Promise( (resolve,reject) => {
+//     let file = `${dataDirectory}/${id}.json`;
+//     fs.readFile(file, (err,data) => {
+//       if ( data ) {
+//         let obj = JSON.parse(data.toString());
+//         resolve(obj);
+//       }
+//       else { reject(`${id} not found`); }
+//     });
+//   });
+// };
+
+// storage.updateOne = (oldId, body) => {
+//   console.log('old id  ', oldId);
+//   console.log('body  ', database[oldId]);
+//   return new Promise( (resolve,reject) => {
+//     if ( database[oldId] ) {
+//       database[oldId] = body;
+//       resolve(database[oldId]);
+//     }
+//     else {
+//       reject('Invalid Data (No ID)');
+//     }
+//   });
+
+// };
 
 export default storage;
