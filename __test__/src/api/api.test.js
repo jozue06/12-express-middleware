@@ -1,10 +1,10 @@
 'use strict';
 
-jest.mock('require-dir');
+// jest.mock('require-dir');
 
 import superagent from 'superagent';
 // import app from '../../../server/src/app.js';
-// import api from '../../../server/src/api/api.js';
+import api from '../../../server/src/api/api.js';
 
 
 
