@@ -10,15 +10,15 @@ import app from '../../../server/src/app.js';
 describe('app', () => {
 
 
-  beforeAll( () => {
-    app.start(3333);
-  });
+  // beforeAll( () => {
+  //   app.start(3333);
+  // });
 
-  afterAll( ()=>{
-    app.stop();
-  });
+  // afterAll( ()=>{
+  //   app.stop();
+  // });
 
-  it('should post a new note with the body, and get back that note with a specific id', () => {
+  it('should post and GET a new note with the body, and get back that note with a specific id', () => {
     let obj = { 
       brand:'OCDP',
       wood:'Maple',
@@ -26,13 +26,13 @@ describe('app', () => {
       count: '5-piece',
       descript:'Short description:',
     };
-    return superagent
+    superagent
       .post('http://localhost:3333/api/v1/drums')
       .send(obj)
 
       .then(data => {
         let returns = data.body.id;
-        return superagent
+         superagent
           .get(`http://localhost:3333/api/v1/drums/${returns}`)
           .then(data => {
             expect(data.status).toEqual(200);
@@ -41,12 +41,12 @@ describe('app', () => {
           .catch(err => {
             console.log(err);
           });
-      });
-
+        });
+        
   });
 
 
-  it('should post a new note with the body, and get back that note with a specific id', () => {
+  it('should post a new note with the body and id', () => {
     let obj = { 
       brand:'OCDP',
       wood:'Maple',
@@ -64,22 +64,20 @@ describe('app', () => {
       });
   });
 
-  it('should PUT a new drum with the body changed, and get back that drum with a specific id', (done) => {
+  it('should PUT a new drum with the body changed, and get back that drum with a specific id', () => {
     let obj = { 
       id:'123',
       brand:'OCDP',
       wood:'Maple',
       color: 'blue',
       count: '5-piece',
-      descript:'Short descriptionss:',
+      descript:'Short descriptionsdd:',
     };
     return superagent
       .put('http://localhost:3333/api/v1/drums/123')
       .send(obj)
-      .then(data => {
-        console.log('stufss');
-        expect(data.status).toEqual(200);
-        done();
+      .then( res => { console.log('stufss'),
+        expect(res.status).toEqual(200)
       });
   });
  

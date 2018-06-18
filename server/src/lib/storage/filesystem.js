@@ -62,6 +62,7 @@ storage.get = (id) => {
 
 storage.save = (data) => {
   debug(`saving ${JSON.stringify(data)}`);
+  console.log('files saved')
   return new Promise( (resolve,reject) => {
     if ( ! data.id ) { reject('No Record ID Specified'); }
 
@@ -88,19 +89,33 @@ storage.save = (data) => {
 //   });
 // };
 
-storage.updateOne = (oldId, body) => {
-  console.log('old id  ', oldId);
-  console.log('body  ', database[oldId]);
-  return new Promise( (resolve,reject) => {
-    if ( database[oldId] ) {
-      database[oldId] = body;
-      resolve(database[oldId]);
-    }
-    else {
-      reject('Invalid Data (No ID)');
-    }
-  });
+// storage.updateOne = (oldId, body) => {
+//   console.log('old id  ', oldId);
+//   console.log('body  ', database[oldId]);
+//   return new Promise( (resolve,reject) => {
+//     if ( database[oldId] ) {
+//       database[oldId] = body;
+//       resolve(database[oldId]);
+//     }
+//     else {
+//       reject('Invalid Data (No ID)');
+//     }
+//   });
 
+// };
+
+storage.updateOne = (oldId, data) => {
+  // debug(`saving ${JSON.stringify(data)}`);
+  console.log('update one filesystem')
+  return new Promise( (resolve,reject) => {
+    if ( ! oldId ) { reject('No Record ID Specified'); }
+    let file = `${dataDirectory}/${oldId}.json`;
+    let text = JSON.stringify(data);
+    fs.writeFile( file, text, (err) => {
+      if(err) { reject(err); }
+      resolve(data);
+    });
+  });
 };
 
 export default storage;
