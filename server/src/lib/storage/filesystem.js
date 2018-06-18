@@ -88,19 +88,19 @@ storage.save = (data) => {
 //   });
 // };
 
-// storage.updateOne = (oldId, body) => {
-//   console.log('old id  ', oldId);
-//   console.log('body  ', database[oldId]);
-//   return new Promise( (resolve,reject) => {
-//     if ( database[oldId] ) {
-//       database[oldId] = body;
-//       resolve(database[oldId]);
-//     }
-//     else {
-//       reject('Invalid Data (No ID)');
-//     }
-//   });
+storage.updateOne = (oldId, body) => {
+  console.log('old id  ', oldId);
+  console.log('body  ', database[oldId]);
+  return new Promise( (resolve,reject) => {
+    if ( database[oldId] ) {
+      database[oldId] = body;
+      resolve(database[oldId]);
+    }
+    else {
+      reject('Invalid Data (No ID)');
+    }
+  });
 
-// };
+};
 
 export default storage;

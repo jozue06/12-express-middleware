@@ -5,7 +5,7 @@
 import modelFinder from '../../../server/src/middleware/models';
 
 describe('Model Finder Middleware', () => {
-  xit('throws an error if a valid model is not present', () => {
+  it('throws an error if a valid model is not present', () => {
     let req = {};
     let res = {};
     let next = () => {};

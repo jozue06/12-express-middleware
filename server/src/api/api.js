@@ -46,8 +46,8 @@ router.post('/api/v1/:model', (req,res,next) => {
 router.put('/api/v1/:model/:id', (req,res,next) => {
   console.log('put one');
   req.model.updateOne(req.params.id, req.body)
-    .then(data => sendJSON(res,data))
-    .then(console.log(next))
+    .then(data => sendJSON(req,data))
+    .then(console.log('stuf after put one'))
     .catch(next);
 });
 

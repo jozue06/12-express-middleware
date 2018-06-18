@@ -1,12 +1,36 @@
 // @flow
 
 'use strict';
-import drums from '../models/drums.js';
 
+/**
+ * Dynamically find and set the right model, based on the URL Param
+ *    i.e.  /api/vi/drums/12345 would result in the model being "drums"
+ *          assuming there is a valid "drums.js" file in the models folder
+ * @param req
+ * @param res
+ * @returns {*}
+ */
 
-
+// Read and require every file in the "models" directory
+// This allows us to dynamically create and use models with ONE API.
+import requireAll from 'require-directory';
+const models = requireAll(module, '../models');
+/*
+  models: {
+    'cymbals': {default: Function()...},
+    'drums': {default: Function() ...}
+  }
+ */
 export default (req,res,next) => {
-  req.model = drums;
-  console.log('inside the models file');
-  next();
+  try {
+    let model = req && req.params && req.params.model;
+    if ( model && models[model] && models[model].default ) {
+      req.model = models[model].default;
+      next();
+    }
+    else { throw 'Model not found'; }
+  }
+  catch(e) {
+    throw e;
+  }
 };

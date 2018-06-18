@@ -64,7 +64,7 @@ describe('app', () => {
       });
   });
 
-  xit('should PUT a new drum with the body changed, and get back that drum with a specific id', () => {
+  it('should PUT a new drum with the body changed, and get back that drum with a specific id', (done) => {
     let obj = { 
       id:'123',
       brand:'OCDP',
@@ -79,6 +79,7 @@ describe('app', () => {
       .then(data => {
         console.log('stufss');
         expect(data.status).toEqual(200);
+        done();
       });
   });
  
