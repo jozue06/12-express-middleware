@@ -2,7 +2,6 @@
 
 
 import superagent from 'superagent';
-import api from '../../../server/src/api/api.js';
 import app from '../../../server/src/app.js';
 
 
@@ -26,12 +25,12 @@ describe('app', () => {
       count: '5-piece',
       descript:'Short description:',
     };
-    superagent
+    return superagent
       .post('http://localhost:3333/api/v1/drums')
       .send(obj)
       .then(data => {
         let returns = data.body.id;
-        superagent 
+        return  superagent 
           .get(`http://localhost:3333/api/v1/drums/${returns}`)
           .then(data => {
             expect(data.status).toEqual(200);
@@ -53,7 +52,7 @@ describe('app', () => {
       count: '5-piece',
       descript:'Short description:',
     };
-    superagent
+    return superagent
       .post('http://localhost:3333/api/v1/drums')
       .send(obj)
       .then(data => {
@@ -69,17 +68,29 @@ describe('app', () => {
       wood:'Maple',
       color: 'blue',
       count: '5-piece',
-      descript:'Short descriptionsdd:',
+      descript:'Short description:',
     };
-    superagent
-      .put('http://localhost:3333/api/v1/drums/123')
+
+    let obj2 = { 
+      brand:'OCDP',
+      wood:'Maple',
+      color: 'blue',
+      count: '5-piece',
+      descript:'Short d:',
+    };
+    return superagent
+      .post('http://localhost:3333/api/v1/drums')
       .send(obj)
-      .then( res => { 
-        console.log('stufss');
-        expect(res.status).toEqual(200);
+      .then(data => {
+        let returns = data.body.id;
+        return superagent
+          .put(`http://localhost:3333/api/v1/drums/${returns}`)
+          .send(obj2)
+          .then( res => { 
+            expect(res.status).toEqual(200);
+          });
       });
   });
- 
 });
 
   

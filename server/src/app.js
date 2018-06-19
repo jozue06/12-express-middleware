@@ -14,7 +14,7 @@ import router from './api/api.js';
 let app = express();
 
 let corsOptions = {
-  origin: ['http://localhost', 'http://app.heroku.com/'],
+  origin: ['http://localhost', 'http://herokuapp.com/'],
 };
 app.use(cors(corsOptions));
 app.use(morgan('dev'));
@@ -23,12 +23,13 @@ app.use(express.urlencoded({extended:true}));
 app.use(router);
 app.use(notFound);
 app.use(errorHandler);
-let isRunning = false;
 
+let isRunning = false;
+let server = null;
 module.exports = {
   start: (port) => {
     if(! isRunning) {
-      app.listen(port, (err) => {
+      server = app.listen(port, (err) => {
         if(err) { throw err; }
         isRunning = true;
         console.log('server is up on port: ', port);
@@ -41,7 +42,7 @@ module.exports = {
   },
 
   stop: () => {
-    app.close( () => {
+    server && server.close( () => {
       isRunning = false;
       console.log('Server has been stopped');
     });
