@@ -15,7 +15,7 @@ let sendJSON = (res,data) => {
 };
 
 router.get('/api/v1/:model', (req,res,next) => {
-  if(!req.params.model || !req.params.id){
+  if(!req.params.model){
     console.log('thrown erro');
     throw err;
   }
