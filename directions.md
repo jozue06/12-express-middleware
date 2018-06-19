@@ -8,4 +8,4 @@
 * create a cors-middleware module that will allow for public use of your API [ ]
 * create methods for filesystem and memory modules to handle GET, POST, and PUT operations. [ ]
 * create a series of acceptance tests to test your GET, POST, and PUT routes [ ]  
-* * _*hint:* you'll want to use the before and after hooks provided by jest in order to create a test note and delete the note after the test has completed_ [ ]
+* * _*hint:* you'll want to use the before and after hooks provided by jest in order to create a test note and **delete** the note after the test has completed_ [ ]

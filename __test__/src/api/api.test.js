@@ -91,6 +91,41 @@ describe('app', () => {
           });
       });
   });
+
+  it('should return error 404 for bad address', () =>{
+    return  superagent 
+      .get(`http://localhost:3333/api/v1/`)
+      .catch(res => {
+        expect(res.status).toEqual(404);
+      });
+  });
+
+  it('should return error 404 for bad model', () =>{
+    return  superagent 
+      .get(`http://localhost:3333/api/v1/d`)
+      .catch(err => {
+        expect(err.status).toEqual(500);
+      });
+  });
+
+  it('should return error for bad id', () =>{
+    return  superagent 
+      .get(`http://localhost:3333/api/v1/drums/444`)
+      .catch(err => {
+        expect(err.status).toEqual(500);
+      });
+  });
+
+  it('should return error for bad post object', () =>{
+    return superagent 
+      .post(`http://localhost:3333/api/v1/cymbals`)
+      .send({})
+      .catch(res => {
+        expect(res.status).toEqual(500);
+      });
+  });
 });
+
+
 
   

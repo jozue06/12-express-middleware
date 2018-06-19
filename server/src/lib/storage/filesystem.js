@@ -55,14 +55,14 @@ storage.get = (id) => {
         let obj = JSON.parse(data.toString());
         resolve(obj);
       }
-      else { reject(`${id} not found`); }
+      else { reject( (err),`${id} not found`); }
     });
   });
 };
 
 storage.save = (data) => {
   debug(`saving ${JSON.stringify(data)}`);
-  console.log('files saved')
+  console.log('files saved');
   return new Promise( (resolve,reject) => {
     if ( ! data.id ) { reject('No Record ID Specified'); }
     let file = `${dataDirectory}/${data.id}.json`;

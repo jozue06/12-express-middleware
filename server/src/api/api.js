@@ -2,9 +2,7 @@
 'use strict';
 
 import express from 'express';
-
 const router = express.Router();
-
 import modelFinder from '../middleware/models.js';
 router.param('model', modelFinder);
 
@@ -17,13 +15,23 @@ let sendJSON = (res,data) => {
 };
 
 router.get('/api/v1/:model', (req,res,next) => {
+  if(!req.params.model || !req.params.id){
+    console.log('thrown erro');
+    throw err;
+  }
   req.model.fetchAll()
     .then(data => sendJSON(res,data))
-    .catch(next);
+    .catch(() => {
+      console.log('nexted');
+      next();
+    });
     
 });
 
 router.get('/api/v1/:model/:id', (req,res,next) => {
+  if(!req.params.id){
+    throw err;
+  }
   req.model.findOne(req.params.id)
     .then(data => sendJSON(res,data))
     .catch(next);
@@ -31,6 +39,9 @@ router.get('/api/v1/:model/:id', (req,res,next) => {
 
 
 router.post('/api/v1/:model', (req,res,next) => {
+  if(!req.body.descript){
+    throw err;
+  }
   let record = new req.model(req.body);
   record.save()
     .then(data => sendJSON(res,data))
