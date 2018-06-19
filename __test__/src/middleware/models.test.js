@@ -1,6 +1,6 @@
 'use strict';
 
-// jest.mock('require-dir'); 
+// jest.mock('require-directory'); 
 
 import modelFinder from '../../../server/src/middleware/models';
 
@@ -14,8 +14,8 @@ describe('Model Finder Middleware', () => {
     }).toThrow();
   });
   it('returns a model object/function when a valid model is requested', () => {
-    let req = {params:{model:'drums'}};//?
-    let res = {};//?
+    let req = {params:{model:'drums'}};
+    let res = {};
     let next = () => {};
     modelFinder(req,res,next);
     console.log(req.params.model);

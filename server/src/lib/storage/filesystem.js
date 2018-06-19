@@ -105,12 +105,14 @@ storage.save = (data) => {
 // };
 
 storage.updateOne = (oldId, data) => {
+  // console.log('old id ', oldId);
+  // console.log('data ', data);
   // debug(`saving ${JSON.stringify(data)}`);
-  console.log('update one filesystem')
   return new Promise( (resolve,reject) => {
     if ( ! oldId ) { reject('No Record ID Specified'); }
-    let file = `${dataDirectory}/${oldId}.json`;
+    let file = `${dataDirectory}${oldId}.json`;
     let text = JSON.stringify(data);
+    // console.log('what the file? ', file);
     fs.writeFile( file, text, (err) => {
       if(err) { reject(err); }
       resolve(data);

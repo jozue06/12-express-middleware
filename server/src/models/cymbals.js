@@ -28,8 +28,8 @@ class Cymbals{
     return storage.get(id);
   }
 
-  static updateOne(criteria) {
-    return storage.update(this);
+  static updateOne(id, body) {
+    return storage.update(id, body);
   }
 
   static deleteOne(id) {
