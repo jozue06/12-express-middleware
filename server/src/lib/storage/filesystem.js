@@ -65,7 +65,6 @@ storage.save = (data) => {
   console.log('files saved')
   return new Promise( (resolve,reject) => {
     if ( ! data.id ) { reject('No Record ID Specified'); }
-
     let file = `${dataDirectory}/${data.id}.json`;
     let text = JSON.stringify(data);
     fs.writeFile( file, text, (err) => {
@@ -75,44 +74,13 @@ storage.save = (data) => {
   });
 };
 
-// storage.get = (id) => {
-//   debug(`getting ${id}`);
-//   return new Promise( (resolve,reject) => {
-//     let file = `${dataDirectory}/${id}.json`;
-//     fs.readFile(file, (err,data) => {
-//       if ( data ) {
-//         let obj = JSON.parse(data.toString());
-//         resolve(obj);
-//       }
-//       else { reject(`${id} not found`); }
-//     });
-//   });
-// };
-
-// storage.updateOne = (oldId, body) => {
-//   console.log('old id  ', oldId);
-//   console.log('body  ', database[oldId]);
-//   return new Promise( (resolve,reject) => {
-//     if ( database[oldId] ) {
-//       database[oldId] = body;
-//       resolve(database[oldId]);
-//     }
-//     else {
-//       reject('Invalid Data (No ID)');
-//     }
-//   });
-
-// };
 
 storage.updateOne = (oldId, data) => {
-  // console.log('old id ', oldId);
-  // console.log('data ', data);
   // debug(`saving ${JSON.stringify(data)}`);
   return new Promise( (resolve,reject) => {
     if ( ! oldId ) { reject('No Record ID Specified'); }
     let file = `${dataDirectory}${oldId}.json`;
     let text = JSON.stringify(data);
-    // console.log('what the file? ', file);
     fs.writeFile( file, text, (err) => {
       if(err) { reject(err); }
       resolve(data);

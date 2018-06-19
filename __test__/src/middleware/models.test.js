@@ -15,10 +15,10 @@ describe('Model Finder Middleware', () => {
   });
   it('returns a model object/function when a valid model is requested', () => {
     let req = {params:{model:'drums'}};
+    console.log(req.params.model);
     let res = {};
     let next = () => {};
     modelFinder(req,res,next);
-    console.log(req.params.model);
     expect(req.params.model).toBe('drums');
   });
 });

@@ -1,17 +1,17 @@
 'use strict';
 
-// import Drums from '../../12-express-middleware/server/src/models/drums.js';
-// import Cymbals from '../../12-express-middleware/server/src/models/cymbals.js';
+// import drums from '../../12-express-middleware/server/src/models/drums.js';
+// import cymbals from '../../12-express-middleware/server/src/models/cymbals.js';
 
-export default (dir) => {
-  if ( typeof dir !== 'string' ) { return {}; }
-  return {
-    'drums': {default: true},
-    'cymbals': {default: true},
-  };
-};
+// export default (dir) => {
+//   if ( typeof dir !== 'string' ) { return {}; }
+//   return {
+//     'drums': {default: drums},
+//     'cymbals': {default: cymbals},
+//   };
+// };
 
 
-// import requireDirectory from 'require-directory';
+import requireDirectory from 'require-directory';
 
-// export default requireDirectory;
+export default requireDirectory;

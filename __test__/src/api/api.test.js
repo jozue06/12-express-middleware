@@ -11,7 +11,7 @@ describe('app', () => {
 
 
   beforeAll( () => {
-    app.start(3333);
+    app.start(3333); 
   });
 
   afterAll( ()=>{
@@ -29,10 +29,9 @@ describe('app', () => {
     superagent
       .post('http://localhost:3333/api/v1/drums')
       .send(obj)
-
       .then(data => {
         let returns = data.body.id;
-        superagent
+        superagent 
           .get(`http://localhost:3333/api/v1/drums/${returns}`)
           .then(data => {
             expect(data.status).toEqual(200);
@@ -54,7 +53,7 @@ describe('app', () => {
       count: '5-piece',
       descript:'Short description:',
     };
-    return superagent
+    superagent
       .post('http://localhost:3333/api/v1/drums')
       .send(obj)
       .then(data => {
@@ -66,18 +65,18 @@ describe('app', () => {
 
   it('should PUT a new drum with the body changed, and get back that drum with a specific id', () => {
     let obj = { 
-      id:'123',
       brand:'OCDP',
       wood:'Maple',
       color: 'blue',
       count: '5-piece',
       descript:'Short descriptionsdd:',
     };
-    return superagent
+    superagent
       .put('http://localhost:3333/api/v1/drums/123')
       .send(obj)
-      .then( res => { console.log('stufss'),
-      expect(res.status).toEqual(200);
+      .then( res => { 
+        console.log('stufss');
+        expect(res.status).toEqual(200);
       });
   });
  
